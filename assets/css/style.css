@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #1c1b21;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+html::-webkit-scrollbar {
+    width: 7.5px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #7a66cc;
+}
+
+*::selection {
+    background: #7a66cc;
+    color: #ffffff;
+}
+/* HEADER START */
+.header {
+    position: fixed;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    min-height: 60px;
+    padding: 5px 0;
+    z-index: 1000;
+    transition: 0.3s ease-in-out ;
+}
+
+.header::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    transition: 0.3s ease-in-out ;
+}
+
+.header.header_scrolling {
+    top: 0px;
+    transition: 0.3s ease-in-out ;
+    box-shadow: 0px 0px 8px 1px #2C2C2C;
+}
+.header.header_scrolling::before{
+    background-color: #7a66cc;
+    transition: 0.3s ease-in-out ;
+}
+
+.header__container {
+    max-width: 960px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.header__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header__logo {
+}
+.logo {
+    width: 223px;
+    height: 60px;
+}
+.header__menu {
+}
+
+.h-menu__items {
+    display: flex;
+    align-items: center;
+}
+.h-menu__item:not(:last-child) {
+    margin-right: 56px;
+}
+.h-menu__link {
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+
+.h-menu__link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0%;
+    height: 0%;
+    background-color: #7a66cc;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+}
+
+.h-menu__link:hover::before {
+    left: calc(50% -15px);
+    height: 100%;
+    width: calc(100% + 30px);
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+.header__menu-switcher {
+    display: none;
+    width: 60px;
+    height: 60px;
+    background: red;
+}
+
+/* HEADER MOBILE */
+
+@media (max-width: 910px){
+    .header{
+        top: 0;
+    }
+
+    .header__menu-switcher {
+        display: block;
+        z-index: 1001;
+    }
+    .header__menu-switcher._active{
+        background: blue
+    }
+
+    body.lock{
+        overflow: hidden;
+    }
+
+    .h-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        z-index: 50;
+        transition: 0.5s all;
+    }
+
+    .h-menu._active{
+        left: 0;
+    }
+
+    .h-menu::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #7a66cc;
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+    .h-menu__items {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 100px;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .h-menu__link{
+        font-size: 25px;
+    }
+    .h-menu__item:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+
+
+}
+
+/* HEADER END */
+
+
+
+/* BANNER START */
+.banner {
+    background: url("../img/banner.jpg") 50% 50% / cover no-repeat;
+    margin-bottom: 330px;
+    position: relative;
+
+}
+
+.banner::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #1C1B21 92.19%);
+}
+
+.banner__body {
+    min-height: 100vh;
+}
+/* BANNER END */
+
+/* FOOTER START */
+.footer {
+    padding-bottom: 40px;
+}
+.footer__container {
+    max-width: 563px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.footer__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__logo {
+    margin-bottom: 60px;
+}
+
+.logo {
+}
+.logo__img {
+}
+.footer__contacts {
+    margin-bottom: 60px;
+}
+.f-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+}
+.f-contacts__item {
+    text-transform: uppercase;
+}
+.f-contacts__item_title {
+    font-weight: 600;
+}
+.f-contacts__item_data {
+
+}
+.footer__social {
+    margin-bottom: 100px;
+}
+.f-social {
+    width: 100%;
+}
+.f-social__items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.f-social__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.f-social__link {
+    width: 44px;
+    height: 44px;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+.f-social__link::before{
+    content: "";
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: #2C2C2C;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    z-index: -1;
+}
+.f-social__link:hover::before{
+    width: 70px;
+    height: 70px;
+    transition: 0.3s ease-in-out;
+}
+.f-social__link_apple-music {
+    background: url(../img/social/apple.svg) 50% 50% / cover no-repeat;
+}
+.f-social__link_spotify {
+    background: url(../img/social/spotify.svg) 50% 50% / cover no-repeat;
+}
+.f-social__link_instagram {
+    background: url(../img/social/instagram.svg) 50% 50% / cover no-repeat;
+}
+.f-social__link_youtube {
+    background: url(../img/social/youtube.svg) 50% 50% / cover no-repeat;
+}
+.f-social__link_twitter {
+    background: url(../img/social/twitter.svg) 50% 50% / cover no-repeat;
+}
+.f-social__link_facebook {
+    background: url(../img/social/facebook.svg) 50% 50% / cover no-repeat;
+}
+.footer__copyright {
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.46;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+/* FOOTER END */
+
+
+@media (max-width: 580px){
+    .f-contacts {
+        grid-template-columns: 1fr;
+    }
+}
